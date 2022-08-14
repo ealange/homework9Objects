@@ -12,7 +12,16 @@ public class Main {
         System.out.println("book3.getPublishingYear() = " + bookRuslanILyudmila.getPublishingYear());
         bookRuslanILyudmila.setPublishingYear(1983);
         System.out.println("book3.getPublishingYear() = " + bookRuslanILyudmila.getPublishingYear());
-
+//        ДЗ 10, проверки переопределенных методов
+        Author alexPushkinTest = new Author("Александр", "Пушкин");
+        System.out.println(alexPushkin.equals(alexPushkinTest));
+        System.out.println(alexPushkin.equals(antonPetryakov));
+        System.out.println(bookEvgeniyOnegin);
+        System.out.println(bookRuslanILyudmila);
+        System.out.println(antonPetryakov);
+        Book bookFreshlifeTest = new Book("Как начать новыю жизнь с понедельника и не бросить во вторник.", antonPetryakov, 2019);
+        System.out.println(bookFreshlife.equals(bookFreshlifeTest));
+        System.out.println(bookFreshlife.equals(bookEvgeniyOnegin));
 
     }
 }

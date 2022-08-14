@@ -1,5 +1,7 @@
 package homework9;
 
+import java.util.Objects;
+
 public class Book {
     private String bookTitle;
     private Author bookAuthor;
@@ -27,24 +29,22 @@ public class Book {
         this.publishingYear = publishingYear;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(bookTitle, bookAuthor, publishingYear);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this.getClass() != obj.getClass()) {
-            return false;
-        }
-//        проверяем, что совпадает название, автор и год
-        return bookTitle == ((Book) obj).getBookTitle() &&
-                bookAuthor.equals(((Book) obj).getBookAuthor()) &&
-                publishingYear == ((Book) obj).getPublishingYear();
-    }
 
     @Override
     public String toString() {
-        return "Название: " + bookTitle + ", автор " + toString(bookAuthor) + "(" + publishingYear + " г.)";
+        return "Название: " + bookTitle + " (" + publishingYear + " г.)" + " " + bookAuthor;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return publishingYear == book.publishingYear && bookTitle.equals(book.bookTitle) && bookAuthor.equals(book.bookAuthor);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bookTitle, bookAuthor, publishingYear);
     }
 }

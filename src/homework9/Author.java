@@ -1,5 +1,7 @@
 package homework9;
 
+import java.util.Objects;
+
 public class Author {
     private String authorFirstName;
     private String authorLastName;
@@ -22,14 +24,13 @@ public class Author {
         return "автор: " + authorFirstName + " " + authorLastName;
     }
 
+
     @Override
-    public boolean equals(Object obj) {
-//        проверяем, что объекты из одного класса
-        if (this.getClass() != obj.getClass()) {
-            return false;
-        }
-//        проверяем, что совпадает имя и фамилия
-        return authorFirstName == ((Author) obj).getAuthorFirstName() && authorLastName == ((Author) obj).getAuthorLastName();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Author author = (Author) o;
+        return authorFirstName.equals(author.authorFirstName) && authorLastName.equals(author.authorLastName);
     }
 
     @Override
